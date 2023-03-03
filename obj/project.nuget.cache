@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "dgSpecHash": "ddXNkRrG3Svf1VUDorv0roEvUrQCj7Uy+z5hHlNLVreQcYN2aBjBcu8f9NGI0OTu11Z0j8yd0lm660qHBsfioQ==",
+  "success": true,
+  "projectFilePath": "E:\\SiteWebChamados\\SiteWebChamados.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\blazor.extensions.logging\\2.0.4\\blazor.extensions.logging.2.0.4.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.2\\microsoft.aspnetcore.authorization.7.0.2.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.2\\microsoft.aspnetcore.components.7.0.2.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\7.0.2\\microsoft.aspnetcore.components.analyzers.7.0.2.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\7.0.2\\microsoft.aspnetcore.components.forms.7.0.2.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.aspnetcore.components.web\\7.0.2\\microsoft.aspnetcore.components.web.7.0.2.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.aspnetcore.metadata\\7.0.2\\microsoft.aspnetcore.metadata.7.0.2.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.jsinterop\\7.0.2\\microsoft.jsinterop.7.0.2.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\microsoft.jsinterop.webassembly\\6.0.13\\microsoft.jsinterop.webassembly.6.0.13.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\mudblazor\\6.0.13\\mudblazor.6.0.13.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\system.io.pipelines\\7.0.0\\system.io.pipelines.7.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas.albertinazzi.TI-01\\.nuget\\packages\\system.text.json\\5.0.1\\system.text.json.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

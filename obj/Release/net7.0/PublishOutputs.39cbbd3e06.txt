@@ -1,0 +1,16 @@
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\SiteWebChamados.exe
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\appsettings.Development.json
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\appsettings.json
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\SiteWebChamados.dll
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\SiteWebChamados.deps.json
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\SiteWebChamados.runtimeconfig.json
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\SiteWebChamados.pdb
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\Blazor.Extensions.Logging.dll
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.Authorization.dll
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.Components.dll
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.Components.Forms.dll
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.Components.Web.dll
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.Metadata.dll
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\Microsoft.JSInterop.dll
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\Microsoft.JSInterop.WebAssembly.dll
+E:\SiteWebChamados\obj\Release\net7.0\PubTmp\Out\MudBlazor.dll

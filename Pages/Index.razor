@@ -1,0 +1,127 @@
+﻿@page "/"
+@using SiteWebChamados.Data;
+@inject HomeService _HomeService
+
+<head>
+    <link href="/css/index.css" rel="stylesheet" />
+</head>
+
+<PageTitle>Home</PageTitle>
+
+<MudPaper Elevation="25" Class="containermaiorcard">
+    <MudDropContainer T="Home.DropItem" Items="_dropItem" ItemsSelector="@((item,dropzone) => item.Selector == dropzone)" ItemDropped="ItemUpdated" Class="container">
+        <ChildContent>
+            <MudDropZone T="Home.DropItem" Identifier="Chamados" Class="containercard">
+                <MudPaper Class="cabecalhoChamado" Elevation="0">
+                    <a>Chamados</a>
+                    <a>6 de 120</a>
+                </MudPaper>
+            </MudDropZone>
+            <MudPaper Elevation="0" Class="containerMid">
+
+                @foreach (var item in infoCardUsers)
+                {
+                    var qtd = item.QtdNvos;
+                    <MudContainer Class="containercard">
+                        <MudPaper Class="cabecalhoChamado" Elevation="0">
+                            <a>@item.Usuario</a>
+                            <a>@item.QtdChamados</a>
+                        </MudPaper>
+                        <br />
+                        <MudExpansionPanels MultiExpansion="true">
+                            <MudExpansionPanel Text="Novos" Style="margin-bottom:10px;">
+                                <MudDropZone T="Home.DropItem" Identifier="Item 1" Class="conteudoExp">
+
+                                </MudDropZone>
+                            </MudExpansionPanel>
+                            <MudExpansionPanel Text="Fazendo" Style="margin-bottom:10px;">
+                                <MudDropZone T="Home.DropItem" Identifier="Item 2" Class="conteudoExp">
+
+                                </MudDropZone>
+                            </MudExpansionPanel>
+                            <MudExpansionPanel Text="Pausado" Style="margin-bottom:10px;">
+                                <MudDropZone T="Home.DropItem" Identifier="Item 3" Class="conteudoExp">
+
+                                </MudDropZone>
+                            </MudExpansionPanel>
+                            <MudExpansionPanel Text="Revisando" Style="margin-bottom:10px;">
+                                <MudDropZone T="Home.DropItem" Identifier="Item 4" Class="conteudoExp">
+
+                                </MudDropZone>
+                            </MudExpansionPanel>
+                            <MudExpansionPanel Text="Concluído" Style="margin-bottom:10px;">
+                                <MudDropZone T="Home.DropItem" Identifier="Item 5" Class="conteudoExp">
+
+                                </MudDropZone>
+                            </MudExpansionPanel>
+
+                            <MudExpansionPanel Text="Cancelado" Style="margin-bottom:10px;">
+                                <MudDropZone T="Home.DropItem" Identifier="Item 6" Class="conteudoExp">
+
+                                </MudDropZone>
+                            </MudExpansionPanel>
+                        </MudExpansionPanels>
+                    </MudContainer>
+
+                }
+
+            </MudPaper>
+        </ChildContent>
+
+        <ItemRenderer>
+
+            <MudCard Class="cardEstilo" Elevation="25">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudAvatar Color="Color.Secondary">JS</MudAvatar>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.body1">João Silva</MudText>
+                        <MudText Typo="Typo.body2">N°: 1234</MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudIconButton Icon="@Icons.Material.Filled.Attachment" Color="Color.Default" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Flag" Style="color:red" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudText Typo="Typo.body2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut molestie.</MudText>
+                </MudCardContent>
+                <MudCardActions Class="d-flex justify-space-around">
+                    <MudButton StartIcon="@Icons.Material.Filled.DateRange" Style="cursor:default; pointer-events:none;" Color="Color.Default">
+                        @Data01
+                    </MudButton>
+                    <MudButton StartIcon="@Icons.Material.Outlined.WatchLater" Style="cursor:default; pointer-events:none;" Color="Color.Default">
+                        @Watch01
+                    </MudButton>
+                    <MudButton StartIcon="@Icons.Material.Filled.Alarm" Style="cursor:default; pointer-events:none;" Color="Color.Default">
+                        @Alarme01
+                    </MudButton>
+                </MudCardActions>
+            </MudCard>
+        </ItemRenderer>
+    </MudDropContainer>
+
+
+
+    @code {
+        string Data01 = DateTime.Now.ToShortDateString();
+        string Watch01 = "---";
+        string Alarme01 = "00:00:00";
+
+        private void ItemUpdated(MudItemDropInfo<Home.DropItem> dropItem) => dropItem.Item.Selector = dropItem.DropzoneIdentifier;
+
+        private List<Home.InfoCardUser>? infoCardUsers;
+
+        private List<Home.DropItem>? _dropItem;
+
+
+        protected override async Task OnInitializedAsync()
+        {
+        infoCardUsers = await _HomeService.GetInfoCardUserAsync();
+
+        _dropItem = await _HomeService.GetDropItemAsync();
+        }
+    }
+
+</MudPaper>

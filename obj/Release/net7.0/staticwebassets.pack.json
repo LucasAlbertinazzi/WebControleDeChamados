@@ -1,0 +1,49 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\SiteWebChamados\\wwwroot\\css\\index.css",
+      "PackagePath": "staticwebassets\\css\\index.css"
+    },
+    {
+      "Id": "E:\\SiteWebChamados\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
+      "Id": "E:\\SiteWebChamados\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\SiteWebChamados\\wwwroot\\images\\headerfull01.jpg",
+      "PackagePath": "staticwebassets\\images\\headerfull01.jpg"
+    },
+    {
+      "Id": "E:\\SiteWebChamados\\wwwroot\\images\\headerfull02.jpg",
+      "PackagePath": "staticwebassets\\images\\headerfull02.jpg"
+    },
+    {
+      "Id": "E:\\SiteWebChamados\\wwwroot\\images\\logo_sistema.png",
+      "PackagePath": "staticwebassets\\images\\logo_sistema.png"
+    },
+    {
+      "Id": "E:\\SiteWebChamados\\wwwroot\\images\\transparente.png",
+      "PackagePath": "staticwebassets\\images\\transparente.png"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.SiteWebChamados.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.build.SiteWebChamados.props",
+      "PackagePath": "build\\SiteWebChamados.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.SiteWebChamados.props",
+      "PackagePath": "buildMultiTargeting\\SiteWebChamados.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildTransitive.SiteWebChamados.props",
+      "PackagePath": "buildTransitive\\SiteWebChamados.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,338 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudPaper Elevation="25" Style="position:absolute; width:100%">
+        <MudToolBar Style="margin-left:4vh;">
+            <MudTooltip Text="Novo chamado" Color="Color.Default" Placement="Placement.Right" Arrow="true">
+                <MudIconButton Icon="@Icons.Material.Outlined.Add" OnClick="OnButtonAddClicked" />
+            </MudTooltip>
+            <MudSpacer />
+            <MudTooltip Text="Revisar" Color="Color.Default" Placement="Placement.Bottom" Arrow="true">
+                <MudIconButton Icon="@Icons.Material.Outlined.Info" />
+            </MudTooltip>
+            <MudTooltip Text="Play" Color="Color.Default" Placement="Placement.Bottom" Arrow="true">
+                <MudIconButton Icon="@Icons.Material.Outlined.PlayArrow" />
+            </MudTooltip>
+            <MudTooltip Text="Pause" Color="Color.Default" Placement="Placement.Bottom" Arrow="true">
+                <MudIconButton Icon="@Icons.Material.Outlined.Pause" />
+            </MudTooltip>
+            <MudTooltip Text="Concluir" Color="Color.Default" Placement="Placement.Bottom" Arrow="true">
+                <MudIconButton Icon="@Icons.Material.Outlined.Check" />
+            </MudTooltip>
+            <MudSpacer />
+            <MudTooltip Text="Sair" Color="Color.Default" Placement="Placement.Bottom" Arrow="true">
+                <MudIconButton Icon="@Icons.Material.Outlined.Logout" Href="login" />
+            </MudTooltip>
+        </MudToolBar>
+    </MudPaper>
+
+    <MudDrawer @bind-Open="@open" ClipMode="clipMode" Breakpoint="@breakpoint" PreserveOpenState="@preserveOpenState" Elevation="1" Variant="@DrawerVariant.Mini">
+        <MudNavMenu Style="text-align:center;">
+            <MudIconButton Style="margin-top:9px" Icon="@Icons.Material.Filled.Home" Href="Index"></MudIconButton>
+            <MudSkeleton Animation="Animation .Wave" />
+            <MudTooltip Text="Urgente" Color="Color.Default" Placement="Placement.Right" Arrow="true">
+                <MudIconButton Icon="@Icons.Material.Filled.Flag" Style="color:#FF0000"></MudIconButton>
+            </MudTooltip>
+            <MudTooltip Text="Alta" Color="Color.Default" Placement="Placement.Right" Arrow="true">
+                <MudIconButton Icon="@Icons.Material.Filled.Flag" Style="color:#FFB600"></MudIconButton>
+            </MudTooltip>
+            <MudTooltip Text="Normal" Color="Color.Default" Placement="Placement.Right" Arrow="true">
+                <MudIconButton Icon="@Icons.Material.Filled.Flag" Style="color:#32CD32"></MudIconButton>
+            </MudTooltip>
+            <MudTooltip Text="Baixa" Color="Color.Default" Placement="Placement.Right" Arrow="true">
+                <MudIconButton Icon="@Icons.Material.Filled.Flag" Style="color:#A9A9A9"></MudIconButton>
+            </MudTooltip>
+            <MudSkeleton Animation="Animation .Wave" />
+            <MudTooltip Text="Meus chamados" Color="Color.Default" Placement="Placement.Right" Arrow="true">
+                <MudIconButton Icon="@Icons.Material.Filled.PlaylistAddCheck" OnClick="MeusChamadosClicked"></MudIconButton>
+            </MudTooltip>
+        </MudNavMenu>
+        <MudNavMenu Style="text-align:center; margin-top:60vh;">
+            <MudTooltip Text="Configuração" Color="Color.Default" Placement="Placement.Right" Arrow="true">
+                <MudIconButton Icon="@Icons.Material.Filled.ManageAccounts" Style="color:dimgray;" OnClick="OnButtonClicked"></MudIconButton>
+            </MudTooltip>
+        </MudNavMenu>
+    </MudDrawer>
+    <MudMainContent Style="background-image:url(images/headerfull01.jpg); min-height:100vh;">
+        <MudContainer MaxWidth="MaxWidth.Large">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+
+    <MudMessageBox @ref="mboxLista" Title="Meus chamados">
+        <MessageContent>
+            <MudContainer Style="overflow-x: hidden; overflow-y: scroll; max-height:40vh">
+                @foreach (var item in valores)
+                {
+                    <MudCard Outlined="true" Style="width:50vh; min-height:40px;border-color:#333; border-width:2px;">
+                        <MudCardContent>
+                            <div style="display:flex; justify-content:space-between;align-items:end; margin-top:-08px; margin-bottom:5px;">
+                                <MudText Typo="Typo.body2">N: 123456</MudText>
+                                <MudText Typo="Typo.body2">T.I</MudText>
+                                <MudText Typo="Typo.body2">Ana Paula</MudText>
+                                <MudText Typo="Typo.body2">Fazendo</MudText>
+                                <MudText Typo="Typo.body2">27/01/2023</MudText>
+                            </div>
+                            <MudText Style="flex-wrap:wrap; font-size:12px;" Typo="Typo.body2">Solicito alteração no formulário XXXXXXX fhdsghshshhghsghgs gfshgshshsg sghshshsghgwg  sghshssghsg gsghshsghsgsg shsghsghs</MudText>
+                        </MudCardContent>
+                    </MudCard>
+                    <br />
+                }
+            </MudContainer>
+        </MessageContent>
+    </MudMessageBox>
+
+    <MudMessageBox @ref="mbox" Title="Configurações">
+        <MessageContent>
+            <MudContainer>
+                <MudExpansionPanels>
+                    <MudExpansionPanel Icon="@Icons.Material.Filled.Settings" Text="Módulos e Tópicos">
+
+                        <div style="display:flex; justify-content:space-between;align-items:end;">
+                            <MudItem>
+                                <MudAutocomplete Style="min-width:30vh;margin-right:2vh" T="string" Label="Módulos" @bind-Value="_modulos" SearchFunc="@Search1" />
+                            </MudItem>
+                            <MudButtonGroup Color="Color.Default" Variant="Variant.Outlined" Style="height:5vh;">
+                                <MudIconButton Icon="@Icons.Material.Filled.Save" Style="color:#021F6A" />
+                                <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="@Color.Error" />
+                            </MudButtonGroup>
+                        </div>
+
+                        <div style="display:flex; justify-content:space-between; margin-top:2vh; margin-bottom:2vh; align-items:end;">
+                            <MudItem>
+                                <MudAutocomplete Style="min-width:30vh; margin-right:2vh" T="string" Label="Tópicos" @bind-Value="_topicos" SearchFunc="@Search2" />
+                            </MudItem>
+                            <MudButtonGroup Color="Color.Default" Variant="Variant.Outlined" Style="height:5vh;">
+                                <MudIconButton Icon="@Icons.Material.Filled.Save" Style="color:#021F6A" />
+                                <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="@Color.Error" />
+                            </MudButtonGroup>
+                        </div>
+
+                        <MudItem>
+                            <MudAutocomplete Style="min-width:30vh;margin-right:2vh" T="string" Label="Prioridade" @bind-Value="_prioridades" SearchFunc="@Search3" />
+                        </MudItem>
+
+                        <div style="display:block; margin-top:2vh; float:right; margin-bottom:1vh">
+                            <MudButtonGroup Color="Color.Default" Variant="Variant.Outlined" Style="height:5vh;">
+                                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Save" Color="Color.Info" Style="color:white; background-color:#021F6A">Salvar</MudButton>
+                            </MudButtonGroup>
+                        </div>
+
+                    </MudExpansionPanel>
+                </MudExpansionPanels>
+                <MudExpansionPanels Class="mt-4">
+                    <MudExpansionPanel @bind-IsExpanded="isOpen" HideIcon="true">
+                        <TitleContent>
+                            <div class="d-flex">
+                                <MudText>Usuários</MudText>
+                                <MudIcon Icon="@(isOpen ? Icons.Material.Filled.Close : Icons.Material.Filled.SupervisorAccount)" class="ml-auto"></MudIcon>
+                            </div>
+                        </TitleContent>
+                        <ChildContent>
+                            <div style="display:flex; justify-content:space-between;align-items:end;">
+                                <MudItem>
+                                    <MudAutocomplete Style="min-width:30vh;margin-right:2vh" T="string" Label="Usuários" @bind-Value="_user" SearchFunc="@Search4" />
+                                </MudItem>
+                                <MudButtonGroup Color="Color.Default" Variant="Variant.Outlined" Style="height:5vh;">
+                                    <MudIconButton Icon="@Icons.Material.Filled.Save" Style="color:#021F6A" />
+                                    <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="@Color.Error" />
+                                </MudButtonGroup>
+                            </div>
+                        </ChildContent>
+                    </MudExpansionPanel>
+                </MudExpansionPanels>
+            </MudContainer>
+        </MessageContent>
+    </MudMessageBox>
+
+    <MudMessageBox @ref="mboxAdd" Title="Novo Chamado">
+        <MessageContent>
+            <MudContainer>
+
+                <div style="display:flex; justify-content:space-between;align-items:end;">
+                    <MudItem>
+                        <MudAutocomplete Style="min-width:8vh;margin-right:2vh" T="string" Label="Loja" @bind-Value="_loja" SearchFunc="@Search5" />
+                    </MudItem>
+                    <MudItem>
+                        <MudAutocomplete Style="min-width:35vh;margin-right:2vh" T="string" Label="Departamento" @bind-Value="_dep" SearchFunc="@Search6" />
+                    </MudItem>
+                </div>
+                <br />
+                <MudItem>
+                    <MudAutocomplete Style="min-width:50vh;margin-right:2vh" T="string" Label="Módulos" @bind-Value="_modulos" SearchFunc="@Search1" />
+                </MudItem>
+                <br />
+                <MudItem>
+                    <MudAutocomplete Style="min-width:30vh;margin-right:2vh" T="string" Label="Tópicos" @bind-Value="_topicos" SearchFunc="@Search2" />
+                </MudItem>
+                <br />
+                <br />
+                <MudTextField T="string" Variant="Variant.Outlined" Style="margin-right:2vh" Label="Observação" MaxLength="90"></MudTextField>
+                <br />
+                <div style="display:block; margin-top:2vh; float:right; margin-bottom:1vh;">
+                    <MudButtonGroup Color="Color.Default" Variant="Variant.Outlined" Style="height:5vh;">
+                        <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.AttachFile" Color="Color.Info" Style="color:white; margin-right:1vh; background-color:#021F6A">Anexo</MudButton>
+                        <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Save" Color="Color.Info" Style="color:white; background-color:#021F6A">Salvar</MudButton>
+                    </MudButtonGroup>
+                </div>
+
+
+            </MudContainer>
+        </MessageContent>
+    </MudMessageBox>
+
+</MudLayout>
+
+@code {
+    bool _drawerOpen = true;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    bool open = false;
+    bool dense = false;
+    bool preserveOpenState = false;
+    Breakpoint breakpoint = Breakpoint.Lg;
+    DrawerClipMode clipMode = DrawerClipMode.Never;
+}
+
+@code {
+
+    MudMessageBox? mbox { get; set; }
+    MudMessageBox? mboxAdd { get; set; }
+    MudMessageBox? mboxLista { get; set; }
+
+    private async void OnButtonClicked()
+    {
+        bool? result = await mbox.Show();
+        StateHasChanged();
+    }
+
+    private async void OnButtonAddClicked()
+    {
+        bool? result = await mboxAdd.Show();
+        StateHasChanged();
+    }
+
+    private async void MeusChamadosClicked()
+    {
+        bool? result = await mboxLista.Show();
+        StateHasChanged();
+    }
+}
+
+@code {
+    bool isOpen;
+
+    public Color SelectedColor { get; set; } = Color.Default;
+
+    private string _modulos;
+    private string _topicos;
+    private string _prioridades;
+    private string _user;
+    private string _loja;
+    private string _dep;
+
+    List<string> valores = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8" };
+
+    private string[] lojas =
+    {
+        "1", "2","3",
+    };
+    private string[] departamentos =
+    {
+        "T.I", "Fiscal", "Depósito",
+    };
+
+    private string[] modulos =
+    {
+        "Redes", "Desenvolvimento",
+    };
+
+    private string[] topicos =
+    {
+        "Configuração de IP", "Problemas de conexão",
+    };
+
+    private string[] prioridades =
+    {
+        "Urgente", "Alta", "Normal","Baixa",
+    };
+
+    private string[] user =
+    {
+        "Lucas","Paulo","Leonardo","Marcos","Ryan", "Ana Paula", "Éder",
+    };
+
+    private async Task<IEnumerable<string>> Search1(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(1000);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return modulos;
+        return modulos.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+    private async Task<IEnumerable<string>> Search2(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(1000);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return topicos;
+        return topicos.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+    private async Task<IEnumerable<string>> Search3(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(1000);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return prioridades;
+        return prioridades.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+    private async Task<IEnumerable<string>> Search4(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(1000);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return user;
+        return user.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+    private async Task<IEnumerable<string>> Search5(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(1000);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return lojas;
+        return lojas.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+    private async Task<IEnumerable<string>> Search6(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(1000);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return departamentos;
+        return departamentos.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+}

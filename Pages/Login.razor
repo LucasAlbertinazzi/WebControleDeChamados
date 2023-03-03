@@ -1,0 +1,47 @@
+﻿@page "/login"
+@layout LoginLayout
+@using SiteWebChamados.Data;
+@inject LoginService _LoginService;
+
+
+<MudContainer Class=".area-login">
+    <MudContainer Class="login">
+        <MudImage Src="images/logo_sistema.png" Alt="Logo" Elevation="0" Class="logoImage" />
+        <form method="post">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+            <input type="text" asp-for="@_credenciais[0].Usuario" class="form-control" autofocus placeholder="Usuário" />
+
+            <span class="text-danger" asp-validation-for="@_credenciais[0].Usuario" style="margin-top: 4px; margin-bottom:-12px"></span>
+
+            <input type="password" asp-for="@_credenciais[0].Senha" class="form-control" placeholder="Senha" />
+
+            <span class="text-danger" asp-validation-for="@_credenciais[0].Senha" style="margin-top: 4px;margin-bottom:-12px"></span>
+
+            <div class="ck">
+                <label class="container">
+                    <input type="checkbox" checked="checked" asp-for="credential.RememberMe">
+                    <span class="checkmark"></span>
+                </label>
+                <div class="round">
+                    <label>Lembrar</label>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="ENTRAR" />
+        </form>
+    </MudContainer>
+
+    @code {
+
+        private List<SiteWebChamados.Data.Login.Credencial>? _credenciais;
+
+        protected override async Task OnInitializedAsync()
+        {
+        _credenciais = await _LoginService.GetCredenciais();
+        }
+
+    }
+
+</MudContainer>
+
+
